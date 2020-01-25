@@ -31,7 +31,7 @@ public class Student {
         System.out.println("Student id:" + studentId);
         System.out.println("Student First Name:" + firstName);
         System.out.println("Student Last Name:" + lastName);
-        System.out.println("Student Birth Date :" + birthDate);
+        System.out.println("Student Birth Date :" + getAge());
         System.out.println("Student Gender:" + gender);
         System.out.println("Student Total Marks:" + totalMarks);
     }
@@ -39,9 +39,9 @@ public class Student {
     public int getAge() {
         //this.birthDate = birthDate;
         LocalDate today = LocalDate.now();
-        LocalDate birthDate = LocalDate.of(1990, Month.JANUARY, 24);
+        LocalDate birthDate = LocalDate.of(1990, Month.SEPTEMBER, 05);
         Period p = Period.between(today, birthDate);
-        System.out.println(p);
+        //System.out.println(p);
         return (Period.between(today, birthDate).getYears());
 
     }
