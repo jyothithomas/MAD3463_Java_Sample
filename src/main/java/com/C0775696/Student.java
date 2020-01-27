@@ -1,9 +1,14 @@
 package com.C0775696;
 
+//import sun.jvm.hotspot.tools.SysPropsDumper;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Set;
 
 enum Gender {
     MALE,
@@ -43,6 +48,25 @@ public class Student {
         Period p = Period.between(today, birthDate);
         //System.out.println(p);
         return (Period.between(today, birthDate).getYears());
+
+    }
+
+    public void hashMap(){
+        HashMap <String,String > hmp = new HashMap<>();
+        hmp.put("hai","world");
+        hmp.put("my","java");
+        if(hmp.containsKey("hai")){
+            System.out.println("contains::::"+hmp.get("hai"));
+        }
+        Set<String> set = hmp.keySet();
+        System.out.println("initial keys::::"+set);
+
+        Collection<String> collection = hmp.values();
+        System.out.println("initial values::::"+collection);
+
+        
+
+
 
     }
 }
