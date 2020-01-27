@@ -12,6 +12,8 @@ public class StudentClassMain {
         s1.getAge();
        // new Date()
         s1.hashMap();
+        s1.functionExamples();
+        s1.stringHandling();
 
 
 

@@ -5,10 +5,9 @@ package com.C0775696;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
+
+import static java.lang.System.in;
 
 enum Gender {
     MALE,
@@ -52,21 +51,61 @@ public class Student {
     }
 
     public void hashMap(){
-        HashMap <String,String > hmp = new HashMap<>();
-        hmp.put("hai","world");
-        hmp.put("my","java");
+        HashMap <Integer,String > hmp = new HashMap<Integer, String>();
+        hmp.put(1,"world");
+        hmp.put(2,"java");
         if(hmp.containsKey("hai")){
             System.out.println("contains::::"+hmp.get("hai"));
         }
-        Set<String> set = hmp.keySet();
+        Set<Integer> set = hmp.keySet();
         System.out.println("initial keys::::"+set);
 
         Collection<String> collection = hmp.values();
         System.out.println("initial values::::"+collection);
 
-        
 
+        hmp.put(3,"more");
+        System.out.println("new  keys::::"+set);
+        System.out.println("new values::::"+collection);
+        System.out.println(hmp.containsValue("more"));
 
+    }
+
+    public void functionExamples(){
+        Scanner input = new Scanner(in);
+        //SUM OF INTEGERS IN A NUMBER
+        int sum =0;
+        System.out.println("enter number 1");
+        Long firstNum = input.nextLong();
+        while(firstNum!=0){
+
+            sum+=firstNum%10;
+            firstNum/=10;
+        }
+        System.out.println(sum);
+    }
+    public void stringHandling(){
+        int alphacount = 0, spacecount =0, numcount =0;
+        Scanner in = new Scanner(System.in);
+        System.out.println("enter the string");
+        String s = in.nextLine();
+        char ch[] = s.toCharArray();
+        for(int i=0;i<ch.length;i++){
+            if(Character.isAlphabetic(ch[i])){
+                alphacount++;
+            }
+            if(Character.isDigit(ch[i])){
+                numcount++;
+            }
+            if(Character.isSpaceChar(ch[i])){
+                spacecount++;
+
+            }
+
+        }
+        System.out.println(alphacount);
+        System.out.println(numcount);
+        System.out.println(spacecount);
 
     }
 }
