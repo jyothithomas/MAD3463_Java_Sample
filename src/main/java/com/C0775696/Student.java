@@ -20,15 +20,110 @@ public class Student {
     String firstName, lastName;
     Date birthDate;
     Gender gender;
+    float subjectMark1;
+    float subjectMark2;
+    float subjectMark3;
+    float subjectMark4;
+    float subjectMark5;
     float totalMarks;
+    float percentage;
+    char result;
 
-    public void setData(int studentId, String firstName, String lastName, Date birthDate, Gender gender, float totalMarks) {
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+    public float getSubjectMark1() {
+        return subjectMark1;
+    }
+
+    public float getSubjectMark2() {
+        return subjectMark2;
+    }
+
+    public float getSubjectMark3() {
+        return subjectMark3;
+    }
+
+    public float getSubjectMark4() {
+        return subjectMark4;
+    }
+
+    public float getSubjectMark5() {
+        return subjectMark5;
+    }
+
+    public float getTotalMarks() {
+        totalMarks = subjectMark1+subjectMark2+subjectMark3+subjectMark4+subjectMark5;
+        return totalMarks;
+    }
+    public float getPercentage() {
+        percentage = totalMarks/5;
+        return percentage;
+    }
+
+    public char getResult() {
+        if(percentage>90){
+            result = 'A';
+        }
+        else if(percentage>80 && percentage<90){
+            result = 'B';
+        }
+        else
+            result = 'C';
+        return result;
+    }
+
+    public void setData(int studentId, String firstName, String lastName, Date birthDate, Gender gender, float subjectMark1, float subjectMark2,
+                        float subjectMark3, float subjectMark4, float subjectMark5, float totalMarks, float percentage, char result) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.totalMarks = totalMarks;
+        this.subjectMark1=subjectMark1;
+        this.subjectMark2=subjectMark2;
+        this.subjectMark3=subjectMark3;
+        this.subjectMark4=subjectMark4;
+        this.subjectMark5=subjectMark5;
+        this.percentage=percentage;
+        this.result=result;
     }
 
     public void printData() {
@@ -37,77 +132,22 @@ public class Student {
         System.out.println("Student Last Name:" + lastName);
         System.out.println("Student Birth Date :" + getAge());
         System.out.println("Student Gender:" + gender);
-        System.out.println("Student Total Marks:" + totalMarks);
+        System.out.println("Student Marks");
+        System.out.println("Student Total Marks:" + getTotalMarks());
+        System.out.println("Student Percentage:"+getPercentage());
+        System.out.println("Result"+getResult());
     }
 
     public int getAge() {
         //this.birthDate = birthDate;
         LocalDate today = LocalDate.now();
-        LocalDate birthDate = LocalDate.of(1990, Month.SEPTEMBER, 05);
+        LocalDate birthDate = LocalDate.of(1991, Month.FEBRUARY, 01);
         Period p = Period.between(today, birthDate);
         //System.out.println(p);
         return (Period.between(today, birthDate).getYears());
 
     }
 
-    public void hashMap(){
-        HashMap <Integer,String > hmp = new HashMap<Integer, String>();
-        hmp.put(1,"world");
-        hmp.put(2,"java");
-        if(hmp.containsKey("hai")){
-            System.out.println("contains::::"+hmp.get("hai"));
-        }
-        Set<Integer> set = hmp.keySet();
-        System.out.println("initial keys::::"+set);
-
-        Collection<String> collection = hmp.values();
-        System.out.println("initial values::::"+collection);
-
-
-        hmp.put(3,"more");
-        System.out.println("new  keys::::"+set);
-        System.out.println("new values::::"+collection);
-        System.out.println(hmp.containsValue("more"));
-
-    }
-
-    public void functionExamples(){
-        Scanner input = new Scanner(in);
-        //SUM OF INTEGERS IN A NUMBER
-        int sum =0;
-        System.out.println("enter number 1");
-        Long firstNum = input.nextLong();
-        while(firstNum!=0){
-
-            sum+=firstNum%10;
-            firstNum/=10;
-        }
-        System.out.println(sum);
-    }
-    public void stringHandling(){
-        int alphacount = 0, spacecount =0, numcount =0;
-        Scanner in = new Scanner(System.in);
-        System.out.println("enter the string");
-        String s = in.nextLine();
-        char ch[] = s.toCharArray();
-        for(int i=0;i<ch.length;i++){
-            if(Character.isAlphabetic(ch[i])){
-                alphacount++;
-            }
-            if(Character.isDigit(ch[i])){
-                numcount++;
-            }
-            if(Character.isSpaceChar(ch[i])){
-                spacecount++;
-
-            }
-
-        }
-        System.out.println(alphacount);
-        System.out.println(numcount);
-        System.out.println(spacecount);
-
-    }
 }
 
 
