@@ -11,9 +11,8 @@ public class StudentClassMain {
                 100,80,79,99,100,s1.getTotalMarks(),s1.getPercentage(),s1.getResult());
         s1.printData();
         s1.getAge();
-
-
-
+        Arithmetic a1 = new Arithmetic();
+        System.out.println(a1.add("hai",2F));
 
     }
 }
